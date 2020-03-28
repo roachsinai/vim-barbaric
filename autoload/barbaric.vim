@@ -46,8 +46,8 @@ endfunction
 function! barbaric#get_im()
   if g:barbaric_ime == 'macos'
     return system('xkbswitch -g')
-  elseif g:barbaric_ime == 'fcitx'
-    return system('fcitx-remote') == 2 ? '-o' : '-c'
+  elseif g:barbaric_ime == 'fcitx5'
+    return system('fcitx5-remote') == 2 ? '-o' : '-c'
   elseif g:barbaric_ime == 'ibus'
     return system('ibus engine')
   endif
@@ -65,8 +65,8 @@ endfunction
 function! s:set_im(im)
   if g:barbaric_ime == 'macos'
     silent call system('xkbswitch -s ' . a:im)
-  elseif g:barbaric_ime == 'fcitx'
-    silent call system('fcitx-remote ' . a:im)
+  elseif g:barbaric_ime == 'fcitx5'
+    silent call system('fcitx5-remote ' . a:im)
   elseif g:barbaric_ime == 'ibus'
     silent call system('ibus engine ' . a:im)
   endif
