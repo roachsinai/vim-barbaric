@@ -1,6 +1,8 @@
 " Check dependencies
 if has('mac') && executable('xkbswitch')
   let g:barbaric_ime = 'macos'
+elseif executable('fcitx-remote') && system('fcitx-remote') > 0
+  let g:barbaric_ime = 'fcitx'
 elseif executable('fcitx5-remote') && system('fcitx5-remote') > 0
   let g:barbaric_ime = 'fcitx5'
 elseif executable('ibus')
